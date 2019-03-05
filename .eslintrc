@@ -1,0 +1,37 @@
+{
+  "extends": "rallycoding",
+  "rules": {
+    "no-console": 2,
+    "no-empty": 2,
+    "no-multi-spaces": "error",
+    "no-extra-bind": 2,
+    "no-unreachable": "error",
+    "semi": 0,
+    "no-unused-vars": "error",
+    "block-spacing": "error",
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "no-useless-computed-key": "error",
+    "arrow-body-style": [
+      "error",
+      "always"
+    ]
+  }
+}
