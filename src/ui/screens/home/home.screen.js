@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  Container,
-  Content,
-} from 'native-base';
-import { View, Text } from 'react-native'
-import { maps } from './home.map'
+import { maps } from './home.map';
+import { View } from 'react-native';
+import { ChatBot } from './section/bot/chatbot.section'
+import { ListComponent, BaseComponent } from '../../components'
 
 export class HomeScreen extends Component {
   constructor(props) {
@@ -16,20 +14,29 @@ export class HomeScreen extends Component {
     await this.props.getLists(this.props.postsLimit, this.props.lastPost);
   }
 
-  render() {
-    const { lists } = this.props
+  renderCard(lists) {
     return (
-      <Container
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Content>
+      <ListComponent
+        lista={lists}
+        navigation={this.props.navigation}
+      />
+    )
+  }
 
-        </Content>
-      </Container>
+  render() {
+    const { lists, navigation } = this.props
+    console.log(navigation.state.routeName)
+    return (
+      <View style={{ flex: 1 }}>
+        <ChatBot />
+      </View>
+      // <BaseComponent
+      //   headerName={'home'}
+      //   style={{ backgroundColor: "#000" }}
+      //   headerDisplay={false}
+      //   headerName={navigation.state.routeName}
+      // >
+      // </BaseComponent>
     );
   }
 }

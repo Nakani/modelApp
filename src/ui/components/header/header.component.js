@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View } from 'react-native';
 import {
-  Container,
   Header,
   Left,
   Button,
@@ -13,23 +11,19 @@ import {
 
 export class HeaderComponent extends PureComponent {
   render() {
-    const { routeName } = this.props.navigation.state
+    const { headerName } = this.props
     return (
-      <View style={{ flex: 1, }}>
-        <Container>
-          <Header>
-            <Left>
-              <Button transparent>
-                <Icon name='arrow-back' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>{routeName}</Title>
-            </Body>
-            <Right />
-          </Header>
-        </Container>
-      </View>
+      <Header>
+        <Left>
+          <Button transparent>
+            <Icon name='arrow-back' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>{headerName}</Title>
+        </Body>
+        <Right />
+      </Header>
     )
   }
 

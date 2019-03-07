@@ -5,32 +5,35 @@ import {
   createSwitchNavigator,
   createAppContainer
 } from 'react-navigation';
-import { HomeScreenConnected, ListsScreen } from './ui/screens';
-import { HeaderComponent } from './ui/components';
 import { Platform } from 'react-native';
+import { Icon } from 'native-base';
+import { HomeScreenConnected, InitialScreenConnected } from './ui/screens';
+import { HeaderComponent } from './ui/components';
 
-const navConfig = (navigation) => ({
-  headerForceInset: {
-    top: 'never',
-  },
-  headerTitle: <HeaderComponent navigation={navigation} />,
-  headerLeft: null,
-  headerStyle: {
-    borderBottomWidth: 0,
-    ...Platform.select({
-      android: {
-        //shadowColor: COLORS.$transparent,
-        shadowOpacity: 0,
-        shadowRadius: 0,
-        shadowOffset: {
-          height: 0,
-          width: 0,
+const navConfig = (navigation) => (
+  console.log(navigation.state.routeName),
+  {
+    headerForceInset: {
+      top: 'never',
+    },
+    headerTitle: <HeaderComponent navigation={navigation} />,
+    headerLeft: null,
+    headerStyle: {
+      borderBottomWidth: 0,
+      ...Platform.select({
+        android: {
+          //shadowColor: COLORS.$transparent,
+          shadowOpacity: 0,
+          shadowRadius: 0,
+          shadowOffset: {
+            height: 0,
+            width: 0,
+          },
+          elevation: 0,
         },
-        elevation: 0,
-      },
-    }),
-  },
-})
+      }),
+    },
+  })
 
 const HomeStack = createStackNavigator({
   Home: {
@@ -38,13 +41,14 @@ const HomeStack = createStackNavigator({
     navigationOptions: {
       header: null,
     },
-  },
+
+  }
 },
 );
 
-const ListsStack = createStackNavigator({
-  Lists: {
-    screen: ListsScreen,
+const InitialStack = createStackNavigator({
+  Início: {
+    screen: InitialScreenConnected,
     navigationOptions: {
       header: null,
     },
@@ -52,38 +56,61 @@ const ListsStack = createStackNavigator({
 },
 );
 
+const getTabBarIcon = (navigation, focused, tintColor) => {
+  const { routeName } = navigation.state;
+  let iconName;
+  console.log(routeName)
+  // switch (routeName) {
+  //   case routeName === 'Home':
+  //     console.log(routeName)
+  //     iconName = 'ios-home' + focused ? '' : '-outline';
+  //     break;
+  //   case routeName === 'Lista':
+  //     iconName = `ios-people${focused ? '' : '-outline'}`;
+  //     break;
+  // }
+  if (routeName === 'Home') {
+    iconName = 'robot'
+    // We want to add badges to home tab icon
+  } else if (routeName === 'Início') {
+    iconName = 'list'
+
+  }
+  console.log(tintColor)
+  return <Icon
+    name={iconName}
+    size={25}
+    type="FontAwesome5"
+  />;
+};
+
 const TabNavigator = createBottomTabNavigator({
   Home: HomeStack,
-  Lista: ListsStack,
+  Início: InitialStack,
 },
   {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        console.log('aqui', routeName)
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-home${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Listas') {
-          iconName = `ios-people${focused ? '' : '-outline'}`;
-        }
-        return <Icon name={iconName} size={25} color={tintColor} />;
-      },
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) =>
+        getTabBarIcon(navigation, focused, tintColor),
     }),
     tabBarOptions: {
-      activeTintColor: '#295BA7',
-      inactiveTintColor: '#dddde1',
-      labelStyle: {
-        color: '#295ba7',
-      },
+      activeTintColor: '#e08c00',
+      inactiveTintColor: 'gray',
+      style: {
+        backgroundColor: 'transparent'
+        // position: "absolute"
+
+      }
     },
-  },
+  }
 );
 
 const AppStack = createStackNavigator({
   Home: {
     screen: TabNavigator,
-    navigationOptions: ({ navigation, }) => (navConfig(navigation))
+    navigationOptions: {
+      header: null,
+    },
   },
 })
 
@@ -93,6 +120,17 @@ export const AppNavigator = createSwitchNavigator(
   },
   {
     initialRouteName: 'App',
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) =>
+        getTabBarIcon(navigation, focused, tintColor),
+    }),
+    tabBarOptions: {
+      activeTintColor: '#295BA7',
+      inactiveTintColor: '#dddde1',
+      labelStyle: {
+        color: '#295ba7',
+      },
+    },
   },
 )
 

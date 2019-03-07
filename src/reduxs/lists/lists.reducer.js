@@ -2,7 +2,6 @@ import { listsConstants } from './lists.constants'
 const INITIAL_STATE = {
   loaded: false,
   lists: [],
-  diogo: 'diogo'
 }
 
 export default (state = INITIAL_STATE, action) => {
