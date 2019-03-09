@@ -7,7 +7,12 @@ import {
 } from 'react-navigation';
 import { Platform } from 'react-native';
 import { Icon } from 'native-base';
-import { HomeScreenConnected, InitialScreenConnected } from './ui/screens';
+import {
+  HomeScreenConnected,
+  InitialScreenConnected,
+  DetailScreenConnected
+}
+  from './ui/screens';
 import { HeaderComponent } from './ui/components';
 
 const navConfig = (navigation) => (
@@ -53,30 +58,24 @@ const InitialStack = createStackNavigator({
       header: null,
     },
   },
+  detail: {
+    screen: DetailScreenConnected,
+    navigationOptions: {
+      header: null,
+    },
+  },
 },
 );
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
   const { routeName } = navigation.state;
   let iconName;
-  console.log(routeName)
-  // switch (routeName) {
-  //   case routeName === 'Home':
-  //     console.log(routeName)
-  //     iconName = 'ios-home' + focused ? '' : '-outline';
-  //     break;
-  //   case routeName === 'Lista':
-  //     iconName = `ios-people${focused ? '' : '-outline'}`;
-  //     break;
-  // }
   if (routeName === 'Home') {
     iconName = 'robot'
     // We want to add badges to home tab icon
   } else if (routeName === 'Início') {
     iconName = 'list'
-
   }
-  console.log(tintColor)
   return <Icon
     name={iconName}
     size={25}
@@ -96,13 +95,8 @@ const TabNavigator = createBottomTabNavigator({
     tabBarOptions: {
       activeTintColor: '#e08c00',
       inactiveTintColor: 'gray',
-      style: {
-        backgroundColor: 'transparent'
-        // position: "absolute"
-
-      }
     },
-  }
+  },
 );
 
 const AppStack = createStackNavigator({

@@ -7,11 +7,13 @@ export class BaseComponent extends PureComponent {
 
   render() {
     const { children, ...rest } = this.props
-    console.log(rest)
     return rest.headerDisplay ? (
       <Container>
         <HeaderComponent
           headerName={rest.headerName}
+          headerStyle={rest.headerStyle}
+          goback={rest.goback}
+          navigation={rest.navigation}
         />
         <Content>
           {children}

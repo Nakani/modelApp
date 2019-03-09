@@ -6,15 +6,16 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#E08C00',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  textTitle: {
+    color: '#E08C00',
+    padding: 10,
+    fontSize: 30,
+    textTransform: 'uppercase'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  map: {
+    width: '100%',
+    height: 200
+  }
+
 });
 

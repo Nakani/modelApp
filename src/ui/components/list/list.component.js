@@ -2,10 +2,9 @@ import React, { PureComponent } from 'react';
 import {
   FlatList,
   TouchableOpacity,
-  Text,
-  View
+  View,
+  Text
 } from 'react-native';
-import { Container } from 'native-base'
 import { ListItemSection } from './sections/list.item.section'
 
 //import styles from './styles';
@@ -13,17 +12,11 @@ import { ListItemSection } from './sections/list.item.section'
 export class ListComponent extends PureComponent {
 
   renderItem = ({ item }) => {
+    const { navigation } = this.props
     return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        //onPress={() => this.props.navigation.navigate('ListDetails', { item })}
-        onPress={() => alert()}
-      >
-        <ListItemSection>
-          {item.list}
-        </ListItemSection>
-      </TouchableOpacity>
+      <ListItemSection navigation={navigation}>
+        {item.list}
+      </ListItemSection>
     )
   }
 

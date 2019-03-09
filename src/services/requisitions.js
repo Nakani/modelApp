@@ -24,9 +24,9 @@ async function getListsAll() {
 
 async function getDetailList(id) {
   try {
+    console.log('requisition', id)
     const response = await axios.get(`http://dev.4all.com:3003/tarefa/${id}`, config);
-    console.log(response)
-    return response
+    return response.data
   } catch (error) {
     console.log('ops deu erro', error)
     console.error(error);
@@ -36,4 +36,5 @@ async function getDetailList(id) {
 
 export const requisitionsService = {
   getListsAll,
+  getDetailList
 };

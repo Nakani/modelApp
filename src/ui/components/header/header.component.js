@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { SafeAreaView } from 'react-native';
 import {
   Header,
   Left,
@@ -8,21 +9,48 @@ import {
   Title,
   Right
 } from 'native-base'
+import { Styles } from './styles/header.styles'
 
 export class HeaderComponent extends PureComponent {
   render() {
-    const { headerName } = this.props
+    const { ...rest } = this.props
+    console.log(rest)
     return (
-      <Header>
+      <Header style={{
+        backgroundColor: '#E08C00',
+      }}>
         <Left>
-          <Button transparent>
-            <Icon name='arrow-back' />
-          </Button>
+          {
+            rest.goback ?
+              <Button
+                transparent
+                onPress={() => rest.navigation.goBack()}
+              >
+                <Icon
+                  style={Styles.icon}
+                  name='angle-left'
+                  type="FontAwesome5"
+                />
+              </Button>
+              : null
+          }
         </Left>
         <Body>
-          <Title>{headerName}</Title>
+          <Title
+            style={Styles.labelHeader}
+          >
+            {rest.headerName}
+          </Title>
         </Body>
-        <Right />
+        <Right>
+          <Button transparent>
+            <Icon
+              style={[Styles.icon, { fontSize: 20 }]}
+              name='search'
+              type="FontAwesome5"
+            />
+          </Button>
+        </Right>
       </Header>
     )
   }

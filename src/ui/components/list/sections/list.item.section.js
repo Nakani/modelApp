@@ -1,15 +1,31 @@
-import React, { PureComponent } from 'react';
-import { List, ListItem, Text } from 'native-base'
+import React, { Component } from 'react';
+import { List, ListItem, Text, Button } from 'native-base'
+import { Styles } from './list.section.style';
 
-//import styles from './styles';
+export class ListItemSection extends Component {
 
-export class ListItemSection extends PureComponent {
+  callDetail() {
+
+  }
+
   render() {
-    const { children } = this.props
+    const { children, navigation } = this.props
     return (
       <List>
         <ListItem>
-          <Text>{children}</Text>
+          <Button
+            style={{
+              width: '100%',
+            }}
+            full
+            transparent
+            onPress={() => navigation.navigate('detail', { children })}
+          >
+            <Text
+              style={Styles.labelButton}>
+              {children}
+            </Text>
+          </Button>
         </ListItem>
       </List>
     )
