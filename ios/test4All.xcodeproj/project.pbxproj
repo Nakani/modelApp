@@ -57,9 +57,9 @@
 		EF4B9BD9C63046479834C6F0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E156A3A2C14A91AD687870 /* Entypo.ttf */; };
 		FA33EB1D222B8C5700A96C3F /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA33EB1C222B8C4100A96C3F /* libRNGestureHandler.a */; };
 		FA82002B2230E7D200EA0EDE /* libART.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8200282230E7BD00EA0EDE /* libART.a */; };
-		FA820069223449DD00EA0EDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA820068223449DD00EA0EDE /* Images.xcassets */; };
 		FA82006B22344B0400EA0EDE /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA82006A22344B0400EA0EDE /* Launch Screen.storyboard */; };
 		FA8200722234547000EA0EDE /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8200712234543C00EA0EDE /* libAirMaps.a */; };
+		FA8200742234585F00EA0EDE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8200732234585F00EA0EDE /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -415,9 +415,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FA8200222230E7BD00EA0EDE /* ART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ART.xcodeproj; path = "../node_modules/react-native/Libraries/ART/ART.xcodeproj"; sourceTree = "<group>"; };
-		FA820068223449DD00EA0EDE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../.Trash/Images.xcassets; sourceTree = "<group>"; };
 		FA82006A22344B0400EA0EDE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FA82006C2234543C00EA0EDE /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		FA8200732234585F00EA0EDE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Apps/teste/ios/teste/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,8 +561,8 @@
 		13B07FAE1A68108700A75B9A /* test4All */ = {
 			isa = PBXGroup;
 			children = (
+				FA8200732234585F00EA0EDE /* Images.xcassets */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				FA820068223449DD00EA0EDE /* Images.xcassets */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -1237,6 +1237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC198F22EE3F402587C0D098 /* AntDesign.ttf in Resources */,
+				FA8200742234585F00EA0EDE /* Images.xcassets in Resources */,
 				EF4B9BD9C63046479834C6F0 /* Entypo.ttf in Resources */,
 				5C9D14564C5F469EBAB58A06 /* EvilIcons.ttf in Resources */,
 				4532294B479C4526A61FAE56 /* Feather.ttf in Resources */,
@@ -1251,7 +1252,6 @@
 				9DB4E611AF3B433E940B9177 /* Octicons.ttf in Resources */,
 				E832D2D5E2784757B3C16E11 /* Roboto_medium.ttf in Resources */,
 				17E4B472F3E649759685C8F8 /* Roboto.ttf in Resources */,
-				FA820069223449DD00EA0EDE /* Images.xcassets in Resources */,
 				72B9DA0EE36B48C7A26C11DF /* rubicon-icon-font.ttf in Resources */,
 				E2DF0D89473B4A4BB189FAD8 /* SimpleLineIcons.ttf in Resources */,
 				FA82006B22344B0400EA0EDE /* Launch Screen.storyboard in Resources */,

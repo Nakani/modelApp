@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo4all" translatesAutoresizingMaskIntoConstraints="NO" id="odC-Vs-SVw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-marketing-1024x1024" translatesAutoresizingMaskIntoConstraints="NO" id="KEZ-I8-Nm4">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo4all" width="512" height="512"/>
+        <image name="Icon-marketing-1024x1024" width="1024" height="1024"/>
     </resources>
 </document>
