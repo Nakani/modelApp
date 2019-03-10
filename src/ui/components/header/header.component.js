@@ -14,7 +14,6 @@ import { Styles } from './styles/header.styles'
 export class HeaderComponent extends PureComponent {
   render() {
     const { ...rest } = this.props
-    console.log(rest)
     return (
       <Header style={{
         backgroundColor: '#E08C00',

@@ -5,16 +5,14 @@ import MapView from 'react-native-maps'
 import { View, Text } from 'react-native'
 import {
   BaseComponent,
-  CardDetailComponent
+  CardDetailComponent,
+  MapsComponent,
+  CommentsComponent
 } from '../../../components'
 import { Styles } from './detail.style'
 import { Image } from 'react-native';
 
 export class DetailScreen extends Component {
-  constructor(props) {
-    super(props);
-    // this.onPress = this.onPress.bind(this)
-  }
 
   async componentDidMount() {
     const { navigation } = this.props
@@ -28,14 +26,35 @@ export class DetailScreen extends Component {
   }
 
   renderCard(detail) {
-    console.log(detail)
     return (
       <CardDetailComponent detail={detail} />
     )
   }
 
+  renderDetailMap(detail) {
+    return (
+      <View style={Styles.contentMaps}>
+        <MapsComponent
+          style={Styles.map}
+          latitude={detail.latitude}
+          longitude={detail.longitude}
+          labelPin={detail.cidade + ' - ' + detail.bairro}
+        />
+      </View>
+    )
+  }
+
+  adjustmentArray(comentarios) {
+    const commentsArray = []
+    comentarios.map(comment => {
+      commentsArray.push({
+        comment
+      })
+    })
+    return commentsArray
+  }
+
   renderDetail(detail) {
-    const { navigation } = this.props
 
     return (
       <View style={{ padding: 0 }}>
@@ -46,13 +65,15 @@ export class DetailScreen extends Component {
           >{detail.titulo}</Text>
         </View>
         {this.renderCard(detail)}
-        <MapView style={Styles.map}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+        {this.renderDetailMap(detail)}
+        <View>
+          <Text
+            style={Styles.textTitleComments}
+          >Comentários
+          </Text>
+        </View>
+        <CommentsComponent
+          comments={this.adjustmentArray(detail.comentarios)}
         />
       </View>
     )
@@ -60,8 +81,6 @@ export class DetailScreen extends Component {
 
   render() {
     const { navigation, detail } = this.props
-    console.log(detail)
-
     return detail != null ? (
       <BaseComponent
         headerName={'home'}

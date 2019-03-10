@@ -4,10 +4,6 @@ import { Styles } from './list.section.style';
 
 export class ListItemSection extends Component {
 
-  callDetail() {
-
-  }
-
   render() {
     const { children, navigation } = this.props
     return (

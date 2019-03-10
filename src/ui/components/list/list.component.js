@@ -1,13 +1,9 @@
 import React, { PureComponent } from 'react';
 import {
   FlatList,
-  TouchableOpacity,
   View,
-  Text
 } from 'react-native';
 import { ListItemSection } from './sections/list.item.section'
-
-//import styles from './styles';
 
 export class ListComponent extends PureComponent {
 

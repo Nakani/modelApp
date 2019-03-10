@@ -1,7 +1,6 @@
 import { getListDetail } from '../../../../reduxs';
 const mapStateToProps = store => {
   const { detail } = store
-  console.log(detail)
   return detail
 };
 

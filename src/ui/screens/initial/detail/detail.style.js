@@ -12,6 +12,15 @@ export const Styles = StyleSheet.create({
     fontSize: 30,
     textTransform: 'uppercase'
   },
+  textTitleComments: {
+    color: '#E08C00',
+    padding: 5,
+    fontSize: 20,
+  },
+  contentMaps: {
+    paddingLeft: 4,
+    paddingRight: 4,
+  },
   map: {
     width: '100%',
     height: 200

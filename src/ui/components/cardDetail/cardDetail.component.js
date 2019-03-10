@@ -1,19 +1,44 @@
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
-import { Card, CardItem, Body, Icon } from 'native-base';
+import { Text, View, TouchableOpacity, Linking, Platform, Alert } from 'react-native';
+import { Card, CardItem, Body, Icon, Button } from 'native-base';
 import { Styles } from './cardDetail.style'
 export class CardDetailComponent extends PureComponent {
 
-  renderCardItemHeader() {
+  callNumber(phone) {
+    console.log('callNumber ----> ', phone);
+    let phoneNumber = phone;
+    if (Platform.OS !== 'android') {
+      phoneNumber = `telprompt:${phone}`;
+    }
+    else {
+      phoneNumber = `tel:${phone}`;
+    }
+    Linking.canOpenURL(phoneNumber)
+      .then(supported => {
+        if (!supported) {
+          Alert.alert('Aviso!', 'Número Inválido');
+        } else {
+          return Linking.openURL(phoneNumber);
+        }
+      })
+      .catch(err => console.log(err));
+  };
+
+
+  renderCardItemHeader(phone) {
     return (
       <CardItem header>
         <View style={Styles.containerIcon}>
           <View style={Styles.contentIcon}>
-            <Icon
-              style={Styles.icon}
-              name='phone'
-              type="FontAwesome"
-            />
+            <TouchableOpacity
+              onPress={() => this.callNumber(phone)}
+              transparent>
+              <Icon
+                style={Styles.icon}
+                name='phone'
+                type="FontAwesome"
+              />
+            </TouchableOpacity>
             <Text
               style={Styles.labelIcon}
             >
@@ -89,9 +114,10 @@ export class CardDetailComponent extends PureComponent {
 
   render() {
     const { ...rest } = this.props
+
     return (
       <Card>
-        {this.renderCardItemHeader()}
+        {this.renderCardItemHeader(rest.detail.telefone)}
         {this.renderCardItemBody(rest.detail.texto)}
       </Card>
     )

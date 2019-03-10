@@ -24,7 +24,6 @@ async function getListsAll() {
 
 async function getDetailList(id) {
   try {
-    console.log('requisition', id)
     const response = await axios.get(`http://dev.4all.com:3003/tarefa/${id}`, config);
     return response.data
   } catch (error) {
