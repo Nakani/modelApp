@@ -6,7 +6,7 @@ export const stepsWelcome = [
   },
   {
     id: '1',
-    message: 'Bem vindo, estou aqui para sanar suas dúvidas referente a esse teste OK?',
+    message: 'Bem vindo, estou aqui para sanar suas dúvidas referente a esse teste OK? Selecione uma das opções abaixo!',
     trigger: '2',
   },
   {
