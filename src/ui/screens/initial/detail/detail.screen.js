@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { maps } from './detail.map'
-import MapView from 'react-native-maps'
 import { View, Text } from 'react-native'
+import { Icon } from 'native-base'
+
 import {
   BaseComponent,
   CardDetailComponent,
@@ -26,8 +27,12 @@ export class DetailScreen extends Component {
   }
 
   renderCard(detail) {
+    const { navigation } = this.props
     return (
-      <CardDetailComponent detail={detail} />
+      <CardDetailComponent
+        detail={detail}
+        navigation={navigation}
+      />
     )
   }
 
@@ -38,8 +43,13 @@ export class DetailScreen extends Component {
           style={Styles.map}
           latitude={detail.latitude}
           longitude={detail.longitude}
-          labelPin={detail.cidade + ' - ' + detail.bairro}
+          labelPin={detail.endereco}
         />
+        <View style={Styles.contentEndereco}>
+          <Text style={Styles.labelEndereco}>
+            {detail.endereco}
+          </Text>
+        </View>
       </View>
     )
   }
@@ -55,14 +65,22 @@ export class DetailScreen extends Component {
   }
 
   renderDetail(detail) {
-
     return (
       <View style={{ padding: 0 }}>
         {this.renderImage(detail.urlFoto)}
-        <View>
+        <View style={Styles.contentTitle}>
           <Text
             style={Styles.textTitle}
-          >{detail.titulo}</Text>
+          >
+            {detail.titulo}
+          </Text>
+          <View style={Styles.iconContent}>
+            <Icon
+              style={Styles.icon}
+              name='star'
+              type="FontAwesome"
+            />
+          </View>
         </View>
         {this.renderCard(detail)}
         {this.renderDetailMap(detail)}

@@ -10,7 +10,8 @@ import { Icon } from 'native-base';
 import {
   HomeScreenConnected,
   InitialScreenConnected,
-  DetailScreenConnected
+  DetailScreenConnected,
+  ServicesScreen
 }
   from './ui/screens';
 import { HeaderComponent } from './ui/components';
@@ -46,7 +47,6 @@ const HomeStack = createStackNavigator({
     navigationOptions: {
       header: null,
     },
-
   }
 },
 );
@@ -60,6 +60,12 @@ const InitialStack = createStackNavigator({
   },
   detail: {
     screen: DetailScreenConnected,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  services: {
+    screen: ServicesScreen,
     navigationOptions: {
       header: null,
     },
@@ -79,6 +85,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   return <Icon
     name={iconName}
     size={25}
+    color={tintColor}
     type="FontAwesome5"
   />;
 };
@@ -95,6 +102,7 @@ const TabNavigator = createBottomTabNavigator({
     tabBarOptions: {
       activeTintColor: '#e08c00',
       inactiveTintColor: 'gray',
+
     },
   },
 );
@@ -114,17 +122,7 @@ export const AppNavigator = createSwitchNavigator(
   },
   {
     initialRouteName: 'App',
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) =>
-        getTabBarIcon(navigation, focused, tintColor),
-    }),
-    tabBarOptions: {
-      activeTintColor: '#295BA7',
-      inactiveTintColor: '#dddde1',
-      labelStyle: {
-        color: '#295ba7',
-      },
-    },
+
   },
 )
 

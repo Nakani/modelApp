@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, ScrollView, FlatList } from 'react-native';
 import { ListCommentsSection } from './section/listComments.section'
 export class CommentsComponent extends PureComponent {
 

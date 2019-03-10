@@ -5,7 +5,6 @@ import { Styles } from './cardDetail.style'
 export class CardDetailComponent extends PureComponent {
 
   callNumber(phone) {
-    console.log('callNumber ----> ', phone);
     let phoneNumber = phone;
     if (Platform.OS !== 'android') {
       phoneNumber = `telprompt:${phone}`;
@@ -24,50 +23,60 @@ export class CardDetailComponent extends PureComponent {
       .catch(err => console.log(err));
   };
 
-
-  renderCardItemHeader(phone) {
+  renderCardItemHeader(detail) {
+    const { navigation } = this.props
     return (
       <CardItem header>
         <View style={Styles.containerIcon}>
           <View style={Styles.contentIcon}>
             <TouchableOpacity
-              onPress={() => this.callNumber(phone)}
-              transparent>
+              onPress={() => this.callNumber(detail.telefone)}
+            >
               <Icon
                 style={Styles.icon}
                 name='phone'
                 type="FontAwesome"
               />
+              <Text
+                style={Styles.labelIcon}
+              >
+                Ligar
+              </Text>
             </TouchableOpacity>
-            <Text
-              style={Styles.labelIcon}
-            >
-              Ligar
-              </Text>
           </View>
           <View style={Styles.contentIcon}>
-            <Icon
-              style={Styles.icon}
-              name='diamond'
-              type="FontAwesome"
-            />
-            <Text
-              style={Styles.labelIcon}
+            <TouchableOpacity
+              onPress={() => navigation.navigate('services')}
             >
-              Serviços
+              <Icon
+                style={Styles.icon}
+                name='diamond'
+                type="FontAwesome"
+              />
+              <Text
+                style={Styles.labelIcon}
+              >
+                Serviços
               </Text>
+            </TouchableOpacity>
           </View>
           <View style={Styles.contentIcon}>
-            <Icon
-              style={Styles.icon}
-              name='map-marker'
-              type="FontAwesome"
-            />
-            <Text
-              style={Styles.labelIcon}
+            <TouchableOpacity
+              onPress={() => Alert.alert(
+                'Endereço', detail.endereco
+              )}
             >
-              Endereço
+              <Icon
+                style={Styles.icon}
+                name='map-marker'
+                type="FontAwesome"
+              />
+              <Text
+                style={Styles.labelIcon}
+              >
+                Endereço
               </Text>
+            </TouchableOpacity>
           </View>
           <View style={Styles.contentIcon}>
             <Icon
@@ -117,7 +126,7 @@ export class CardDetailComponent extends PureComponent {
 
     return (
       <Card>
-        {this.renderCardItemHeader(rest.detail.telefone)}
+        {this.renderCardItemHeader(rest.detail)}
         {this.renderCardItemBody(rest.detail.texto)}
       </Card>
     )

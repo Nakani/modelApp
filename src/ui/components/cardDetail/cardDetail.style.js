@@ -4,17 +4,18 @@ export const Styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   contentIcon: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   icon: {
     fontSize: 20,
     textAlign: 'center',
     color: '#E08C00',
+    marginBottom: 7,
   },
   labelIcon: {
     fontSize: 11,
@@ -23,7 +24,6 @@ export const Styles = StyleSheet.create({
   },
   contentDescription: {
     flex: 1,
-    //justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     borderTopWidth: 1,
