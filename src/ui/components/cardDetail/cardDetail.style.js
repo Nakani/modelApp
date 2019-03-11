@@ -18,7 +18,7 @@ export const Styles = StyleSheet.create({
     marginBottom: 7,
   },
   labelIcon: {
-    fontSize: 11,
+    fontSize: 9,
     textAlign: 'center',
     color: '#E08C00'
   },

@@ -5,7 +5,6 @@ const INITIAL_STATE = {
 }
 
 export default (state = INITIAL_STATE, action) => {
-
   switch (action.type) {
     case listsConstants.FETCH_LISTS_REQUEST: {
       return { ...state, loaded: action.payload }

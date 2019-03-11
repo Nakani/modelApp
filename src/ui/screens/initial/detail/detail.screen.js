@@ -17,7 +17,7 @@ export class DetailScreen extends Component {
 
   async componentDidMount() {
     const { navigation } = this.props
-    await this.props.getListDetail(navigation.state.params.children);
+    // await this.props.getListDetail(navigation.state.params.children);
   }
 
   renderImage(url) {
@@ -65,6 +65,7 @@ export class DetailScreen extends Component {
   }
 
   renderDetail(detail) {
+    console.log(detail.titulo)
     return (
       <View style={{ padding: 0 }}>
         {this.renderImage(detail.urlFoto)}
@@ -98,17 +99,19 @@ export class DetailScreen extends Component {
   }
 
   render() {
-    const { navigation, detail } = this.props
-    return detail != null ? (
+    const { navigation } = this.props
+    console.log(navigation)
+    return navigation != null ? (
       <BaseComponent
         headerName={'home'}
         headerStyle={{ backgroundColor: "#E08C00" }}
         headerDisplay={true}
-        headerName={detail.cidade + ' - ' + detail.bairro}
+        headerName={navigation.state.params.item.cidade + ' - ' + navigation.state.params.item.bairro}
         goback={true}
         navigation={navigation}
       >
-        {this.renderDetail(detail)}
+
+        {this.renderDetail(navigation.state.params.item)}
       </BaseComponent>
     ) : null
   }

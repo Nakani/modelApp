@@ -10,9 +10,10 @@ export class ListComponent extends PureComponent {
   renderItem = ({ item }) => {
     const { navigation } = this.props
     return (
-      <ListItemSection navigation={navigation}>
-        {item.list}
-      </ListItemSection>
+      <ListItemSection
+        navigation={navigation}
+        item={item.response}
+      />
     )
   }
 

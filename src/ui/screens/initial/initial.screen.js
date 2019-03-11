@@ -6,10 +6,6 @@ import { Styles } from './initial.style'
 
 export class InitialScreen extends Component {
 
-  async componentDidMount() {
-    await this.props.getLists();
-  }
-
   renderLists(lists) {
     const { navigation } = this.props
     return (
